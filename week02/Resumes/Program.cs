@@ -1,5 +1,6 @@
 using System;
 using System.Globalization;
+using Job;
 
 class Program
 {
@@ -23,33 +24,5 @@ class Program
         myResume._name = "Greg Nielson";
         myResume._jobs = [job1, job2];
         myResume.Display();
-    }
-}
-
-public class Job
-{
-    public String _company;
-    public String _jobTitle;
-    public int _startYear;
-    public int _endYear;
-
-    public void Display()
-    {
-        Console.WriteLine($"{_jobTitle} ({_company}) {_startYear}-{_endYear}");
-    }
-}
-
-public class Resume
-{
-    public string _name;
-    public List<Job> _jobs;
-
-    public void Display()
-    {
-        Console.WriteLine($"Name: {_name}");
-        Console.WriteLine("Jobs:");
-        foreach (Job b in _jobs) {
-            b.Display();
-        }
     }
 }
