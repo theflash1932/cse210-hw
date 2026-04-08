@@ -7,25 +7,39 @@ class Program
     {
         Console.WriteLine("Hello World! This is the ScriptureMemorizer Project.");
         Console.Clear();
-        String text = "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.";
+        string t = "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.";
+        //Console.WriteLine(text);
         Reference r = new Reference("John",3,16);
-        Scripture s = new Scripture(r, text);
+        r.ShowReference();
+        Scripture s = new Scripture(r, t);
+        s.ShowReference();
+        
     }
 }
 class Scripture
 {
     Reference _reference;
-    List<Word> _words;
+    //List<Word> _words;
 
     // constructors
     public Scripture(Reference r, String s)
     {
         _reference = r;
-        foreach(String w in s.Split(" "))
-        {
-            Word h = new Word(w);
-            _words.Add(h);
-        }
+        //foreach(String w in s.Split(" "))
+        //{
+        //    Word h = new Word(w);
+        //    _words.Add(h);
+        //}
+        //_words.Add();
+
+    }
+    public Scripture(Reference r)
+    {
+        _reference = r;
+    }
+    public void ShowReference()
+    {
+        _reference.ShowReference();
     }
 }
 
@@ -51,34 +65,17 @@ class Reference
         _starting = v;
         _ending = e;
     }
-}
-
-class Word
-{
-    String _word;
-    bool _hidden;
-
-    // constructors
-    public Word(String s)
+    public void ShowReference()
     {
-        _word = s;
-    }
-
-    // methods
-    public void HideWord()
-    {
-        _hidden = true;
-    }
-    public void ShowWord()
-    {
-        _hidden = false;
-    }
-    public bool IsHidden()
-    {
-        return _hidden;
-    }
-    public int ShowText()
-    {
-        return 1;
+        String verses;
+        if(_ending != _starting)
+        {
+            verses = _starting.ToString() + "-" + _ending.ToString();
+        }
+        else
+        {
+            verses = _starting.ToString();
+        }
+        Console.WriteLine($"{_book} {_chapter}:{verses}");
     }
 }
