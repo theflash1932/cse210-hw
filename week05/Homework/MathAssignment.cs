@@ -14,7 +14,7 @@ namespace Homework
         }
         public string GetHomeworkList()
         {
-            return ("${_textbookSection} {_problems}");
+            return $"{_textbookSection} {_problems}";
         }
     }
 }
