@@ -1,9 +1,14 @@
-using System;
+using System; 
 
-class Program
+namespace Homework
 {
-    static void Main(string[] args)
+    class Program
     {
-        Console.WriteLine("Hello World! This is the Homework Project.");
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World! This is the Homework Project.");
+            Assignment a = new MathAssignment("a","b","c","d");
+            
+        }
     }
 }
