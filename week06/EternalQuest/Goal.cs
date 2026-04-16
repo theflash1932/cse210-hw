@@ -1,30 +1,25 @@
 using System;
 
-public class Goal
+public abstract class Goal
 {
     string _shortHand;
     string _description;
-    string _points;
-    public Goal(string n, string d, string p)
+    int _points;
+    public Goal(string n, string d, int p)
     {
         _shortHand = n;
         _description = d;
         _points = p;
     }
-    public void RecordEvent()
-    {
-        
-    }
-    public bool IsComplete()
-    {
-        return false;
-    }
+    public abstract void RecordEvent();
+    public abstract bool IsComplete();
     public string GetDetailsString()
     {
-        return "";
+        bool c = IsComplete();
+        string check;
+        if(c) {check = "X";}
+        else {check = " ";}
+        return $"[{check}] {_shortHand} ({_description}), {_points}";
     }
-    public string GetStringRepresenation()
-    {
-        return "";
-    }
+    public abstract string GetStringRepresentation();
 }

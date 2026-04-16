@@ -3,20 +3,20 @@ using System;
 public class EternalGoal : Goal
 {
     
-    public EternalGoal(string n, string d, string p)
+    public EternalGoal(string n, string d, int p)
         : base(n,d,p)
     {
         
     }
-    public void RecordEvent()
+    public override void RecordEvent()
     {
         
     }
-    public bool IsComplete()
+    public override bool IsComplete()
     {
         return false;
     }
-    public string GetStringRepresenation()
+    public override string GetStringRepresentation()
     {
         return "";
     }
