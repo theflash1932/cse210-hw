@@ -9,13 +9,13 @@ class Program
         do
         {
             Random randomGenerator = new Random();
-            int magicNumber = randomGenerator.Next(1, 11);
+            int magicNumber = randomGenerator.Next(1, 101);
             int number;
             int guesses = 0;
             string qty = "try";
             do
             {
-                Console.Write("What is the magic number? ");
+                Console.Write("What is the magic number? " + magicNumber);
                 number = int.Parse(Console.ReadLine());
                 if (magicNumber > number)
                 {
