@@ -12,6 +12,7 @@ class Program
         {
             Console.Write("Enter a number: ");
             numEntry = int.Parse(Console.ReadLine());
+            if (numEntry == 0) { break; }
             numberList.Add(numEntry);
         }
         while (numEntry != 0);
