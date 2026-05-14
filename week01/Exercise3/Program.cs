@@ -15,7 +15,7 @@ class Program
             string qty = "try";
             do
             {
-                Console.Write("What is the magic number? " + magicNumber);
+                Console.Write("What is the magic number? ");
                 number = int.Parse(Console.ReadLine());
                 if (magicNumber > number)
                 {
