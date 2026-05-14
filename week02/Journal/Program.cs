@@ -29,7 +29,7 @@ class Program
             choice = Console.ReadLine();
             if (int.Parse(choice) == 1)
             {
-                Console.Write("Journal file to load: ");
+                Console.Write("Journal file to load: (myjournal.txt found) ");
                 journalLocation = Console.ReadLine();
                 filename = $"..\\..\\..\\{journalLocation}";
                 j.LoadFromFile(filename);
