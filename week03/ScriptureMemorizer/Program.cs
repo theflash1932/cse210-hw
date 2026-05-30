@@ -1,81 +1,31 @@
+// Extra: Program creates a List of words not yet hidden and selects from those words at 
+// random to hide, ensuring each turn hides 3 new words.
+
 using System;
-using System.Security.Cryptography.X509Certificates;
+using System.Net.Quic;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks.Dataflow;
 
 class Program
 {
     static void Main(string[] args)
     {
         Console.WriteLine("Hello World! This is the ScriptureMemorizer Project.");
-        Console.Clear();
-        string t = "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.";
-        //Console.WriteLine(text);
-        Reference r = new Reference("John",3,16);
-        r.ShowReference();
+        string input = "";
+        string t = "But while he thought on these things, behold, the angel of the Lord appeared unto him in a dream, saying, Joseph, thou son of David, fear not to take unto thee Mary thy wife: for that which is conceived in her is of the Holy Ghost.";
+        Reference r = new Reference("Matthew", 1, 20);
         Scripture s = new Scripture(r, t);
-        s.ShowReference();
-        
-    }
-}
-class Scripture
-{
-    Reference _reference;
-    //List<Word> _words;
-
-    // constructors
-    public Scripture(Reference r, String s)
-    {
-        _reference = r;
-        //foreach(String w in s.Split(" "))
-        //{
-        //    Word h = new Word(w);
-        //    _words.Add(h);
-        //}
-        //_words.Add();
-
-    }
-    public Scripture(Reference r)
-    {
-        _reference = r;
-    }
-    public void ShowReference()
-    {
-        _reference.ShowReference();
-    }
-}
-
-class Reference
-{
-    String _book;
-    int _chapter;
-    int _starting;
-    int _ending;
-    
-    // constructors
-    public Reference(String b, int c, int v)
-    {
-        _book = b;
-        _chapter = c;
-        _starting = v;
-        _ending = v;
-    }
-    public Reference(String b, int c, int v, int e)
-    {
-        _book = b;
-        _chapter = c;
-        _starting = v;
-        _ending = e;
-    }
-    public void ShowReference()
-    {
-        String verses;
-        if(_ending != _starting)
+        do
         {
-            verses = _starting.ToString() + "-" + _ending.ToString();
+            Console.Clear();
+            Console.WriteLine("\n");
+            r.ShowReference();
+            s.ShowReference();
+            Console.WriteLine("\n");
+            Console.WriteLine("Enter to continue, 'quit' to end");
+            input = Console.ReadLine();
+            if (s.AllHidden()) { s.Finish(); break; }
         }
-        else
-        {
-            verses = _starting.ToString();
-        }
-        Console.WriteLine($"{_book} {_chapter}:{verses}");
+        while (!input.ToLower().Contains("q"));
     }
 }

@@ -23,8 +23,18 @@ public class Word
     {
         return _hidden;
     }
-    public int ShowText()
+    public String ShowText()
     {
-        return 1;
+        if (IsHidden())
+        {
+            String wh = "";
+            for (int i = 0; i < _word.Length; i++)
+            { wh += "_"; }
+            return (wh);
+        }
+        else
+        {
+            return (_word);
+        }
     }
 }
