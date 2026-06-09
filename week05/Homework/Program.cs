@@ -20,7 +20,6 @@ namespace Homework
             Console.WriteLine(c.GetSummary());
             Console.WriteLine(c.GetWritingInformation());
             Console.WriteLine();
-
         }
     }
 }
