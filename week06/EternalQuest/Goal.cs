@@ -17,8 +17,8 @@ public abstract class Goal
     {
         bool c = IsComplete();
         string check;
-        if(c) {check = "X";}
-        else {check = " ";}
+        if (c) { check = "X"; }
+        else { check = " "; }
         return $"[{check}] {_shortHand} ({_description}), {_points}";
     }
     public abstract string GetStringRepresentation();
